@@ -28,22 +28,22 @@ class Solution {
 
         if (root == null) return 0;
         List<TreeNode> treeNodes = new ArrayList<TreeNode>();
-        TreeNode presentNode = root;
+//        TreeNode presentNode = root;
         root.val = 1;
         treeNodes.add(root);
-        while (presentNode.left != null || presentNode.right != null){
-            if (presentNode.left != null){
-                presentNode.left.val = presentNode.val + 1;
-                treeNodes.add(presentNode.left);
+        while (root.left != null || root.right != null){
+            if (root.left != null){
+                root.left.val = root.val + 1;
+                treeNodes.add(root.left);
             }
-            if (presentNode.right != null){
-                presentNode.right.val = presentNode.val + 1;
-                treeNodes.add(presentNode.right);
+            if (root.right != null){
+                root.right.val = root.val + 1;
+                treeNodes.add(root.right);
             }
             treeNodes = treeNodes.subList(1, treeNodes.size());
-            presentNode = treeNodes.get(0);
+            root = treeNodes.get(0);
         }
 
-        return presentNode.val;
+        return root.val;
     }
 }
